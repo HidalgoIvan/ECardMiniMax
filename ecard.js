@@ -47,7 +47,6 @@
             var result = 0;
             node.children.forEach(child => {
                 result = emperorMinMax(child, false);
-                console.log("INSIDE max: " + result + " computer hand: " + child.computerHand + " human hand: " + child.humanHand);
                 if(node.computerHand.length == startingComputerHand.length)
                 {
                     finalChoiceNodes[child.choice] = result;
@@ -57,16 +56,13 @@
                     value = result;
                 }
             });
-            console.log("Result max: " + value);
             return value;
         }else{
             var result = 0;
             node.children.forEach(child => {
                 var prob = child.probability * emperorMinMax(child, true); 
                 result += prob; 
-                console.log("INSIDE min: " + emperorMinMax(child, true) + " prob: " + child.probability + " multipied: " + (child.probability * emperorMinMax(child, true)) + " computer hand: " + child.computerHand + " human hand: " + child.humanHand ); 
             });
-            console.log("Result min: " + result + " computer hand: " + node.computerHand + " human hand: " + node.humanHand);
             return result;
         }
 
@@ -75,7 +71,6 @@
     function checkTerminalNodeEmperor(node){
         if(node.choice == "S")
         {
-            console.log("Critical choice: " + node.choice);
             return true;
         }
         if(!node.computerHand.includes("K") && node.choice == "C")
@@ -88,26 +83,10 @@
         }
         if(node.humanHand.length == 1 && node.computerHand.length == 1)
         {
-            console.log("Final cards computer " + node.computerHand + " human " + node.humanHand);
             return true;
         }
         return false;
     }
-
-    /*function minimax(node,  maximizingPlayer) is
-    if depth = 0 or node is a terminal node then
-        return the heuristic value of node
-    if maximizingPlayer then
-        value := −∞
-        for each child of node do
-            value := max(value, minimax(child, depth − 1, FALSE))
-        return value
-    else (* minimizing player *)
-        value := +∞
-        for each child of node do
-            value := min(value, minimax(child, depth − 1, TRUE))
-        return value*/
-
     function frequency(arr, val)
     {
         var freq = 0;
@@ -120,10 +99,79 @@
         return freq;
     }
 
+    function slaveMinMax(node, maximizingPlayer){
+        if(checkTerminalNodeEmperor(node)){
+            // Heuristic values
+            if(!node.computerHand.includes("K") && node.humanHand.includes("S"))
+            {
+                return winningScore;
+            }
+            if(node.computerHand.includes("K") && node.humanHand.includes("S"))
+            {
+                return losingScore;
+            }
+            if(node.computerHand.includes("K") && !node.humanHand.includes("S"))
+            {
+                return winningScore;
+            }
+            if(node.choice.includes("S") && !node.computerHand.includes("K"))
+            {
+                return losingScore;
+            }
+            if(node.choice.includes("K") && !node.humanHand.includes("S"))
+            {
+                return winningScore;
+            }
+            if(node.choice == "C" && !node.computerHand.includes("K"))
+            {
+                return winningScore;
+            }
+            if(node.choice == "C" && !node.humanHand.includes("S"))
+            {
+                return winningScore;
+            }
+            else{
+                return 0;
+            }
+        }
+        if(maximizingPlayer){
+            var value = -10000;
+            var result = 0;
+            node.children.forEach(child => {
+                result = emperorMinMax(child, false);
+                if(node.computerHand.length == startingComputerHand.length)
+                {
+                    finalChoiceNodes[child.choice] = result;
+                }
+                if(result > value)
+                {
+                    value = result;
+                }
+            });
+            return value;
+        }else{
+            var result = 0;
+            node.children.forEach(child => {
+                var prob = child.probability * emperorMinMax(child, true); 
+                result += prob; 
+            });
+            return result;
+        }
+
+    }
+
+
     function printer(msg){
         document.getElementsByClassName("printer")[0].innerText = msg;
     }
 });
+
+function addCommas(){
+    var val = document.getElementById("bet-amount").value.replace(",","").replace(/[A-Za-z!@#$%^&*()]/g, '');
+    val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    document.getElementById("bet-amount").value = val;
+    console.log("VALUE: " + val);
+}
 
 class Node {
     constructor(computerHand, humanHand, choice, player) {

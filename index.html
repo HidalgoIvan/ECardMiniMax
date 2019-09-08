@@ -4,6 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>E Card</title>
         <link rel="stylesheet" href="./styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap" rel="stylesheet">
     </head>
     <body class="FFFF">
         <div class="computerHand">
@@ -12,6 +13,28 @@
             <div class="cardback"></div>
             <div class="cardback"></div>
             <div class="cardback"></div>
+        </div>
+        <div class="score">
+            <div>
+                    Current bet:
+                </div>
+                <div id="score-display">
+                    <div>
+                        ¥
+                    </div>
+                    <input id="bet-amount" type="text" value="10,000" onchange="addCommas()">
+                </div>
+            <div>
+                Winnings:
+            </div>
+            <div id="score-display">
+                <div>
+                    ¥
+                </div>
+                <div id="score-value">
+                    0
+                </div>
+            </div> 
         </div>
         <div class="playerHand">
             <div class="card" id="slave"></div>

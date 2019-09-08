@@ -5,16 +5,6 @@ body{
     width: 100vw;
     background: linear-gradient(rgb(4, 37, 8), green 20%, green 80%, rgb(4, 37, 8));
 }
-.playerHand{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 5vh;
-    align-items: baseline;
-    transition: 0.3s;
-}
 .computerHand{
     width: 100%;
     height: auto;
@@ -35,6 +25,63 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+}
+.score{
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    margin: 0 auto;
+    height: 100px;
+    width: fit-content;
+    background-color: rgb(172, 172, 172);
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: rgb(82, 76, 76);
+    border-style: groove;
+    align-content: center;
+}
+#bet-amount{
+    background-color: black;
+    color: rgb(255, 255, 52);
+    font-family: 'Gugi', cursive;
+    font-size: 50px;
+    border: none;
+    width: 200px;
+    text-align: center;
+}
+.score > div{
+    color: rgb(255, 255, 52);
+    height: 150px;
+    font-family: 'Gugi', cursive;
+    font-size: 50px;
+    line-height: 100px;
+    margin: 0 5px;
+    text-shadow:
+    2px 2px 0 #000;
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+#score-display{
+    background-color: black;
+    height: 80px;
+    margin-top: 10px;
+    line-height: 80px;
+    border-radius: 5px;
+    padding: 0 10px;
+    display: flex;
+}
+.playerHand{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 5vh;
+    align-items: baseline;
+    transition: 0.3s;
 }
 .card{
     margin: 5px;
