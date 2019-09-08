@@ -14,6 +14,10 @@
             <div class="cardback"></div>
             <div class="cardback"></div>
         </div>
+        <div class="show" id="show-human">
+        </div>
+        <div class="show" id="show-computer">
+        </div>
         <div class="score">
             <div>
                     Current bet:
@@ -37,11 +41,11 @@
             </div> 
         </div>
         <div class="playerHand">
-            <div class="card" id="slave"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
+            <div class="card" id="slave" onclick="playTurn(this)"></div>
+            <div class="card" onclick="playTurn(this)"></div>
+            <div class="card" onclick="playTurn(this)"></div>
+            <div class="card" onclick="playTurn(this)"></div>
+            <div class="card" onclick="playTurn(this)"></div>
         </div>
         <div class="printer"></div>
         <script src="./ecard.js"></script>
