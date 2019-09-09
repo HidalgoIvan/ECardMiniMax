@@ -27,8 +27,9 @@ body{
     background-position: center;
     background-size: contain;
     z-index: 1;
+    display: inherit;
 }
-@keyframes reveal-card {
+@keyframes reveal-card-emperor {
     10% {
         width: 220px;
         height: 290px;
@@ -55,8 +56,7 @@ body{
         box-shadow: 0px 10px 10px -6px rgba(0,0,0,0.75); 
     }
 }
-@keyframes reveal-card-face {
-    0% {}
+@keyframes reveal-card-slave {
     10% {
         width: 220px;
         height: 290px;
@@ -64,14 +64,67 @@ body{
         min-height: 290px;
         box-shadow: 0px 10px 10px -6px rgba(0,0,0,0.75);
     }
+    30% {
+        background-image: url("./cardback.png");
+        transform: rotate3d(0,1,0, 90deg) scaleX(1); 
+    }
+    31% {
+        background-image: url("./slave.jpg");
+        transform: rotate3d(0,1,0, 90deg) scaleX(-1); 
+    }
     100%{
-      transform: rotate3d(0,1,0, 180deg); 
+        background-size: 100% 100%;
+      background-image: url("./slave.jpg");
+      transform: rotate3d(0,1,0, 180deg) scaleX(-1); 
       width: 220px;
         height: 290px;
         min-width: 220px;
         min-height: 290px;
         box-shadow: 0px 10px 10px -6px rgba(0,0,0,0.75); 
     }
+}
+@keyframes reveal-card-citizen {
+    10% {
+        width: 220px;
+        height: 290px;
+        min-width: 220px;
+        min-height: 290px;
+        box-shadow: 0px 10px 10px -6px rgba(0,0,0,0.75);
+    }
+    30% {
+        background-image: url("./cardback.png");
+        transform: rotate3d(0,1,0, 90deg) scaleX(1); 
+    }
+    31% {
+        background-image: url("./citizen.jpg");
+        transform: rotate3d(0,1,0, 90deg) scaleX(-1); 
+    }
+    100%{
+        background-size: 100% 100%;
+      background-image: url("./citizen.jpg");
+      transform: rotate3d(0,1,0, 180deg) scaleX(-1); 
+      width: 220px;
+        height: 290px;
+        min-width: 220px;
+        min-height: 290px;
+        box-shadow: 0px 10px 10px -6px rgba(0,0,0,0.75); 
+    }
+}
+.result{
+    animation: show-turn-result 2s forwards;
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    margin: 0 auto;
+    width: fit-content;
+    font-size: 80px;
+    display: none;
+}
+@keyframes show-turn-result{
+    0% { opacity: 0 }
+    20% { opacity: 1}
+    80% { opacity: 1}
+    100% { opacity: 0}
 }
 .score{
     position: relative;
