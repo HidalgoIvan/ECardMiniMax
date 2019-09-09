@@ -152,6 +152,18 @@ body{
     width: 200px;
     text-align: center;
 }
+@media only screen and (max-width: 600px) {
+    .score > div{
+        color: rgb(255, 255, 52);
+        height: 150px;
+        font-family: 'Gugi', cursive;
+        font-size: 20px;
+        line-height: 100px;
+        margin: 0 5px;
+        text-shadow:
+        2px 2px 0 #000;
+    }
+}
 .score > div{
     color: rgb(255, 255, 52);
     height: 150px;
