@@ -143,30 +143,31 @@ body{
     align-content: center;
     z-index: 0;
 }
-#bet-amount{
-    background-color: black;
-    color: rgb(255, 255, 52);
-    font-family: 'Gugi', cursive;
-    font-size: 50px;
-    border: none;
-    width: 200px;
-    text-align: center;
-}
-@media (max-width: 801px) {
+
+@media (max-width: 1000px) {
     .score > div{
         color: rgb(255, 255, 52);
         height: 150px;
         font-family: 'Gugi', cursive;
-        font-size: 15px;
+        font-size: 35px;
         line-height: 100px;
         margin: 0 5px;
         text-shadow:
         2px 2px 0 #000;
     }
+    #bet-amount{
+        background-color: black;
+        color: rgb(255, 255, 52);
+        font-family: 'Gugi', cursive;
+        font-size: 35px;
+        border: none;
+        width: 110px;
+        text-align: center;
+    }
 }
 
 
-@media (min-width: 801px) {
+@media (min-width: 1001px) {
     .score > div{
         color: rgb(255, 255, 52);
         height: 150px;
@@ -176,6 +177,15 @@ body{
         margin: 0 5px;
         text-shadow:
         2px 2px 0 #000;
+    }
+    #bet-amount{
+        background-color: black;
+        color: rgb(255, 255, 52);
+        font-family: 'Gugi', cursive;
+        font-size: 50px;
+        border: none;
+        width: 200px;
+        text-align: center;
     }
 }
 input[type=number]::-webkit-inner-spin-button {
