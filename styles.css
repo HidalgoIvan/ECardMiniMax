@@ -157,7 +157,7 @@ body{
         color: rgb(255, 255, 52);
         height: 150px;
         font-family: 'Gugi', cursive;
-        font-size: 20px;
+        font-size: 15px !important;
         line-height: 100px;
         margin: 0 5px;
         text-shadow:
